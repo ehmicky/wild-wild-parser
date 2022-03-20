@@ -1,6 +1,6 @@
 import test from 'ava'
 import { each } from 'test-each'
-import { parsePath, serializePath } from 'wild-wild-parser'
+import { parsePath, serializePath, normalizePath } from 'wild-wild-parser'
 
 each(
   [
@@ -30,6 +30,18 @@ each(
   },
 )
 
+each(
+  [
+    { query: ['a', 'b'], output: ['a', 'b'] },
+    { query: 'a.b', output: ['a', 'b'] },
+  ],
+  ({ title }, { query, output }) => {
+    test(`normalizePath() output | ${title}`, (t) => {
+      t.deepEqual(normalizePath(query), output)
+    })
+  },
+)
+
 each(['a b', '-1', '-0', ':', '/a/', '*', '**'], ({ title }, arg) => {
   test(`parsePath() validates input | ${title}`, (t) => {
     t.throws(parsePath.bind(undefined, arg))
@@ -53,3 +65,9 @@ each(
     })
   },
 )
+
+each([[-1], '-1'], ({ title }, arg) => {
+  test(`normalizePath() validates input | ${title}`, (t) => {
+    t.throws(normalizePath.bind(undefined, arg))
+  })
+})
