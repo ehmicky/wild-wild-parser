@@ -9,9 +9,6 @@
     "build/src/**/*.{js,d.ts,map,json,sh,md}",
     "examples/**/*.{js,ts,map,json,sh,md}"
   ],
-  "bin": {
-    "wild-wild-parser": "build/src/bin/main.js"
-  },
   "scripts": {
     "test": "gulp test"
   },
