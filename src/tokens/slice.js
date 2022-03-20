@@ -55,7 +55,9 @@ const normalize = function ({ type, from = 0, to }) {
 
 // Check if two tokens are the same
 const equals = function (tokenA, tokenB) {
-  return Object.is(tokenA.from, tokenB.from) && Object.is(tokenA.to, tokenB.to)
+  const { from: fromA, to: toA } = normalize(tokenA)
+  const { from: fromB, to: toB } = normalize(tokenB)
+  return Object.is(fromA, fromB) && Object.is(toA, toB)
 }
 
 export const SLICE_TOKEN = {

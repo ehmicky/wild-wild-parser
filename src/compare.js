@@ -67,11 +67,5 @@ export const isSameToken = function (tokenA, tokenB) {
 
   const tokenTypeA = getValidTokenType(tokenA)
   const tokenTypeB = getValidTokenType(tokenB)
-  return (
-    tokenTypeA === tokenTypeB &&
-    tokenTypeA.equals(
-      tokenTypeA.normalize(tokenA),
-      tokenTypeB.normalize(tokenB),
-    )
-  )
+  return tokenTypeA === tokenTypeB && tokenTypeA.equals(tokenA, tokenB)
 }
