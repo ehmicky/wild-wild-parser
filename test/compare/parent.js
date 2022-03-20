@@ -10,6 +10,9 @@ each(
     { parentPath: 'a', childPath: 'a.b', output: true },
     { parentPath: 'a', childPath: 'a', output: false },
     { parentPath: 'a.b', childPath: 'a', output: false },
+    { parentPath: 'a', childPath: 'a.b.c', output: true },
+    { parentPath: 'a.b', childPath: 'a.b.c', output: true },
+    { parentPath: 'c', childPath: 'a.b', output: false },
   ],
   ({ title }, { parentPath, childPath, output }) => {
     test(`isParentPath() output | ${title}`, (t) => {
