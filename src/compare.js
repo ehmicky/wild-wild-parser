@@ -25,22 +25,19 @@ const hasSameQueryArray = function (queryArrays, queryArrayA) {
   )
 }
 
+// Check if two paths are equal
+export const isSamePath = function (pathA, pathB) {
+  const pathC = normalizePath(pathA)
+  const pathD = normalizePath(pathB)
+  return isSameQueryArray(pathC, pathD)
+}
+
 const isSameQueryArray = function (queryArrayA, queryArrayB) {
   return (
     queryArrayA.length === queryArrayB.length &&
     queryArrayA.every((tokenA, index) =>
       isSameToken(tokenA, queryArrayB[index]),
     )
-  )
-}
-
-// Check if two paths are equal
-export const isSamePath = function (pathA, pathB) {
-  const pathC = normalizePath(pathA)
-  const pathD = normalizePath(pathB)
-  return (
-    pathC.length === pathD.length &&
-    pathC.every((prop, index) => isSameToken(pathD[index], prop))
   )
 }
 
