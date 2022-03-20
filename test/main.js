@@ -1,8 +1,9 @@
 import test from 'ava'
-import { normalizeQuery } from 'wild-wild-parser'
+import { each } from 'test-each'
+import { parseQuery } from 'wild-wild-parser'
 
-test('Dummy test', (t) => {
-  t.is(typeof normalizeQuery, 'function')
-  const queryArrays = normalizeQuery('*')
-  t.deepEqual(queryArrays, [[{ type: 'any' }]])
+each([[], [[]], ['prop'], [['prop']], '', ' '], ({ title }, arg) => {
+  test(`parseQuery() validates input | ${title}`, (t) => {
+    t.throws(parseQuery.bind(undefined, arg))
+  })
 })
