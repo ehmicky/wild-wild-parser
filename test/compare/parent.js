@@ -4,15 +4,15 @@ import { isParentPath } from 'wild-wild-parser'
 
 each(
   [
-    { parentPath: [], childPath: [], output: false },
-    { parentPath: [], childPath: ['a'], output: true },
-    { parentPath: [], childPath: 'a', output: true },
+    { parentPath: ['a'], childPath: 'a.b', output: true },
     { parentPath: 'a', childPath: 'a.b', output: true },
     { parentPath: 'a', childPath: 'a', output: false },
+    { parentPath: '.', childPath: '.', output: false },
     { parentPath: 'a.b', childPath: 'a', output: false },
     { parentPath: 'a', childPath: 'a.b.c', output: true },
     { parentPath: 'a.b', childPath: 'a.b.c', output: true },
     { parentPath: 'c', childPath: 'a.b', output: false },
+    { parentPath: '.', childPath: 'a', output: true },
   ],
   ({ title }, { parentPath, childPath, output }) => {
     test(`isParentPath() output | ${title}`, (t) => {
