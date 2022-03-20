@@ -1,6 +1,6 @@
 import { normalizeQuery, normalizePath } from './normalize.js'
 import { getObjectTokenType } from './tokens/main.js'
-import { validateToken } from './validate/arrays.js'
+import { validateToken } from './validate/token.js'
 
 // Check if two queries are equal.
 // Works with:
