@@ -30,7 +30,7 @@ const normalizeToken = function (token, query) {
   return tokenType.normalize(token)
 }
 
-const validateToken = function (tokenType, token, query) {
+export const validateToken = function (tokenType, token, query) {
   if (tokenType === undefined) {
     throwTokenError(
       query,

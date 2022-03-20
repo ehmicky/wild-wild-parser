@@ -1,5 +1,6 @@
 import { normalizeQuery, normalizePath } from './normalize.js'
 import { getObjectTokenType } from './tokens/main.js'
+import { validateToken } from './validate/arrays.js'
 
 // Check if two queries are equal.
 // Works with:
@@ -65,7 +66,13 @@ export const isSameToken = function (tokenA, tokenB) {
     return true
   }
 
-  const tokenTypeA = getObjectTokenType(tokenA)
-  const tokenTypeB = getObjectTokenType(tokenB)
+  const tokenTypeA = getTokenType(tokenA)
+  const tokenTypeB = getTokenType(tokenB)
   return tokenTypeA === tokenTypeB && tokenTypeA.equals(tokenA, tokenB)
+}
+
+const getTokenType = function (token) {
+  const tokenType = getObjectTokenType(token)
+  validateToken(tokenType, token, token)
+  return tokenType
 }
