@@ -54,26 +54,24 @@ each(
     { queryArrays: [[{ type: 'slice' }]], output: '0:' },
     { queryArrays: [[{ type: 'slice', from: 1, to: 1 }]], output: '1:1' },
     { queryArrays: [[{ type: 'slice', from: -1, to: -1 }]], output: '-1:-1' },
+    { queryArrays: [[{ type: 'slice', other: true }]], output: '0:' },
 
     // RegExp tokens
     // eslint-disable-next-line require-unicode-regexp
     { queryArrays: [[/a/]], output: '/a/' },
-    // { queryArrays: '/a/u', output: [[/a/u]] },
-    // { queryArrays: '/a/b/u', output: [[/a\/b/u]] },
-    // { queryArrays: '//', output: [['//']] },
-    // { queryArrays: '/', output: [['/']] },
-    // { queryArrays: 'b/a/', output: [['b/a/']] },
+    { queryArrays: [[/a/u]], output: '/a/u' },
+    { queryArrays: [[/a.b/u]], output: '/a\\.b/u' },
+    { queryArrays: [[/a b/u]], output: '/a\\ b/u' },
+    { queryArrays: [[/a\b/u]], output: '/a\\\\b/u' },
+    { queryArrays: [[/a\/b/u]], output: '/a\\\\/b/u' },
 
-    // // any tokens
-    // { queryArrays: '*', output: [[{ type: 'any' }]] },
-    // { queryArrays: '*a', output: [['*a']] },
-    // { queryArrays: 'a*', output: [['a*']] },
+    // any tokens
+    { queryArrays: [[{ type: 'any' }]], output: '*' },
+    { queryArrays: [[{ type: 'any', other: true }]], output: '*' },
 
-    // // anyDeep tokens
-    // { queryArrays: '**', output: [[{ type: 'anyDeep' }]] },
-    // { queryArrays: '**a', output: [['**a']] },
-    // { queryArrays: 'a**', output: [['a**']] },
-    // { queryArrays: '***', output: [['***']] },
+    // anyDeep tokens
+    { queryArrays: [[{ type: 'anyDeep' }]], output: '**' },
+    { queryArrays: [[{ type: 'anyDeep', other: true }]], output: '**' },
   ],
   ({ title }, { queryArrays, output }) => {
     test(`serializeQuery() output | ${title}`, (t) => {
