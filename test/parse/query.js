@@ -70,6 +70,8 @@ each(
     { queryString: '/a\\\\b/u', output: [[/a\b/u]] },
     { queryString: '/a/b/u', output: [[/a\/b/u]] },
     { queryString: '/a\\\\/b/u', output: [[/a\/b/u]] },
+    { queryString: '/\\.*/u', output: [[/.*/u]] },
+    { queryString: '/.*/u', output: [['/.*/u']] },
     { queryString: '//', output: [['//']] },
     { queryString: '/', output: [['/']] },
     { queryString: 'b/a/', output: [['b/a/']] },
