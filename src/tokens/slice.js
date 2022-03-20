@@ -48,8 +48,9 @@ const SLICE_TYPE = 'slice'
 
 // Normalize value after parsing or serializing
 const normalize = function ({ type, from = 0, to }) {
-  const toA = Object.is(to, -0) ? undefined : to
-  return { type, from, to: toA }
+  return Object.is(to, -0) || to === undefined
+    ? { type, from }
+    : { type, from, to }
 }
 
 // Check if two tokens are the same
