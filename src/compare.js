@@ -61,11 +61,17 @@ export const isParentPath = function (parentPath, childPath) {
 
 // Check if two tokens are equal
 export const isSameToken = function (tokenA, tokenB) {
-  if (tokenA === tokenB) {
+  if (Object.is(tokenA, tokenB)) {
     return true
   }
 
   const tokenTypeA = getValidTokenType(tokenA)
   const tokenTypeB = getValidTokenType(tokenB)
-  return tokenTypeA === tokenTypeB && tokenTypeA.equals(tokenA, tokenB)
+  return (
+    tokenTypeA === tokenTypeB &&
+    tokenTypeA.equals(
+      tokenTypeA.normalize(tokenA),
+      tokenTypeB.normalize(tokenB),
+    )
+  )
 }
