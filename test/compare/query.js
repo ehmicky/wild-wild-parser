@@ -4,8 +4,8 @@ import { isSameQuery } from 'wild-wild-parser'
 
 each(
   [
-    { queryA: [], queryB: [], output: true },
     { queryA: [], queryB: ['a'], output: false },
+    { queryA: [], queryB: [], output: true },
     { queryA: ['a'], queryB: [['a']], output: true },
     { queryA: [['a'], ['b']], queryB: 'a b', output: true },
     { queryA: ':', queryB: '0:', output: true },
