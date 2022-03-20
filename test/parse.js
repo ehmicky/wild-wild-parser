@@ -61,6 +61,15 @@ each(
     { queryString: '//', output: [['//']] },
     { queryString: '/', output: [['/']] },
     { queryString: 'b/a/', output: [['b/a/']] },
+    // any tokens
+    { queryString: '*', output: [[{ type: 'any' }]] },
+    { queryString: '*a', output: [['*a']] },
+    { queryString: 'a*', output: [['a*']] },
+    // anyDeep tokens
+    { queryString: '**', output: [[{ type: 'anyDeep' }]] },
+    { queryString: '**a', output: [['**a']] },
+    { queryString: 'a**', output: [['a**']] },
+    { queryString: '***', output: [['***']] },
   ],
   ({ title }, { queryString, output }) => {
     test(`parseQuery() output | ${title}`, (t) => {
