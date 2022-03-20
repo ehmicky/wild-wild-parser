@@ -77,8 +77,26 @@ each(
   },
 )
 
-each(['', 'a', [true], [[true]]], ({ title }, arg) => {
-  test(`serializeQuery() validates input | ${title}`, (t) => {
-    t.throws(serializeQuery.bind(undefined, arg))
-  })
-})
+each(
+  [
+    '',
+    'a',
+    [true],
+    [[true]],
+    ['a', ['b']],
+    [{}],
+    // eslint-disable-next-line no-magic-numbers
+    [0.1],
+    // eslint-disable-next-line no-magic-numbers
+    [1n],
+    [Number.POSITIVE_INFINITY],
+    [Number.NaN],
+    [{ type: 'slice', from: 'from' }],
+    [{ type: 'slice', to: 'to' }],
+  ],
+  ({ title }, arg) => {
+    test(`serializeQuery() validates input | ${title}`, (t) => {
+      t.throws(serializeQuery.bind(undefined, arg))
+    })
+  },
+)
