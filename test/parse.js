@@ -57,8 +57,10 @@ each(
     // eslint-disable-next-line require-unicode-regexp
     { queryString: '/a/', output: [[/a/]] },
     { queryString: '/a/u', output: [[/a/u]] },
+    { queryString: '/a/b/u', output: [[/a\/b/u]] },
     { queryString: '//', output: [['//']] },
     { queryString: '/', output: [['/']] },
+    { queryString: 'b/a/', output: [['b/a/']] },
   ],
   ({ title }, { queryString, output }) => {
     test(`parseQuery() output | ${title}`, (t) => {
