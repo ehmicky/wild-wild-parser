@@ -1,4 +1,4 @@
-import { INDEX_TOKEN } from './array.js'
+import { INDEX_TOKEN } from './indices.js'
 import { OTHER_TOKEN_TYPES } from './other.js'
 import { PROP_TOKEN } from './prop.js'
 

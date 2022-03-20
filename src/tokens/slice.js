@@ -1,6 +1,6 @@
 import isPlainObj from 'is-plain-obj'
 
-import { INDEX_TOKEN } from './array.js'
+import { INDEX_TOKEN } from './indices.js'
 
 // Check the type of a parsed token.
 const testObject = function (token) {

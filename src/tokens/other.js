@@ -1,5 +1,5 @@
 import { ANY_TOKEN, ANY_DEEP_TOKEN } from './any.js'
-import { INDEX_TOKEN } from './array.js'
+import { INDEX_TOKEN } from './indices.js'
 import { REGEXP_TOKEN } from './regexp.js'
 import { SLICE_TOKEN } from './slice.js'
 
