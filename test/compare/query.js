@@ -3,7 +3,17 @@ import { each } from 'test-each'
 import { isSameQuery } from 'wild-wild-parser'
 
 each(
-  [{ queryA: [], queryB: [], output: true }],
+  [
+    { queryA: [], queryB: [], output: true },
+    { queryA: [], queryB: ['a'], output: false },
+    { queryA: ['a'], queryB: [['a']], output: true },
+    { queryA: [['a'], ['b']], queryB: 'a b', output: true },
+    { queryA: ':', queryB: '0:', output: true },
+    { queryA: 'a', queryB: 'a.b', output: false },
+    { queryA: 'a b', queryB: 'b a', output: true },
+    { queryA: 'a a', queryB: 'a', output: true },
+    { queryA: 'a a b', queryB: 'b a', output: true },
+  ],
   ({ title }, { queryA, queryB, output }) => {
     test(`isSameQuery() output | ${title}`, (t) => {
       t.is(isSameQuery(queryA, queryB), output)

@@ -10,7 +10,6 @@ export const isSameQuery = function (queryA, queryB) {
   const queryArraysA = normalizeQuery(queryA)
   const queryArraysB = normalizeQuery(queryB)
   return (
-    queryArraysA.length === queryArraysB.length &&
     queryArraysA.every((queryArrayA) =>
       hasSameQueryArray(queryArraysB, queryArrayA),
     ) &&
