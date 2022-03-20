@@ -5,7 +5,12 @@ const testObject = function (token) {
   return token instanceof RegExp
 }
 
-// Serialize a token to a string
+// Serialize a token to a string.
+// We need to escape characters with special meaning in parsing.
+// Forward slashes are backslash escaped natively by `RegExp.source`.
+//  - `new RegExp()` reverts this, but also allows them not be backslash escaped
+//  - This means '/a/b/' and '/a\\/b/' queries are equivalent, but normalized
+//    to the latter when parsing or serializing.
 const serialize = function (token) {
   const source = escapeSpecialChars(token.source)
   return `${REGEXP_DELIM}${source}${REGEXP_DELIM}${token.flags}`
