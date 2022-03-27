@@ -6,7 +6,18 @@
 
 🤠 Parser for object property paths with wildcards and regexps.
 
-Work in progress!
+[`wild-wild-path`](https://github.com/ehmicky/wild-wild-path) is a library which
+gets/sets object properties using dot-delimited paths, wildcards, regexps,
+slices and unions.
+
+`wild-wild-parser` allows manipulating
+[its query format](https://github.com/ehmicky/wild-wild-path#queries):
+
+- Parse/serialize, i.e. convert between
+  [query strings](https://github.com/ehmicky/wild-wild-path#query-strings) and
+  [query arrays](https://github.com/ehmicky/wild-wild-path#query-arrays)
+- Normalize queries
+- Compare queries
 
 # Examples
 
@@ -14,12 +25,16 @@ Work in progress!
 
 ```
 
+<!--
+
 # Demo
 
 You can try this library:
 
 - either directly [in your browser](https://repl.it/@ehmicky/wild-wild-parser).
 - or by executing the [`examples` files](examples/README.md) in a terminal.
+
+-->
 
 # Install
 
@@ -30,12 +45,6 @@ npm install wild-wild-parser
 This package is an ES module and must be loaded using
 [an `import` or `import()` statement](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c),
 not `require()`.
-
-# Usage
-
-```js
-
-```
 
 # API
 
