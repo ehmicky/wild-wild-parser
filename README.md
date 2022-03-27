@@ -48,7 +48,66 @@ not `require()`.
 
 # API
 
-## exampleMethod
+## parseQuery(queryString)
+
+`queryString`
+[`QueryString`](https://github.com/ehmicky/wild-wild-path#query-strings)\
+_Return value_: [`QueryArray`](https://github.com/ehmicky/wild-wild-path#query-arrays)
+
+## serializeQuery(queryArray)
+
+`queryArray`
+[`QueryArray`](https://github.com/ehmicky/wild-wild-path#query-arrays)\
+_Return value_: [`QueryString`](https://github.com/ehmicky/wild-wild-path#query-strings)
+
+## normalizeQuery(query)
+
+`queryString` [`Query`](https://github.com/ehmicky/wild-wild-path#queries)\
+_Return value_: [`QueryArray`](https://github.com/ehmicky/wild-wild-path#query-arrays)
+
+## parsePath(pathString)
+
+`pathString` [`PathString`](https://github.com/ehmicky/wild-wild-path#paths)\
+_Return value_: [`PathArray`](https://github.com/ehmicky/wild-wild-path#paths)
+
+## serializePath(pathArray)
+
+`pathArray` [`PathArray`](https://github.com/ehmicky/wild-wild-path#paths)\
+_Return value_: [`PathString`](https://github.com/ehmicky/wild-wild-path#paths)
+
+## normalizePath(path)
+
+`pathString` [`Path`](https://github.com/ehmicky/wild-wild-path#paths)\
+_Return value_: [`PathArray`](https://github.com/ehmicky/wild-wild-path#paths)
+
+## isSameQuery(firstQuery, secondQuery)
+
+`firstQuery` [`Query`](https://github.com/ehmicky/wild-wild-path#queries)\
+`secondQuery` [`Query`](https://github.com/ehmicky/wild-wild-path#queries)\
+_Return value_: `boolean`
+
+## isSamePath(firstPath, secondPath)
+
+`firstPath` [`Path`](https://github.com/ehmicky/wild-wild-path#paths)\
+`secondPath` [`Path`](https://github.com/ehmicky/wild-wild-path#paths)\
+_Return value_: `boolean`
+
+## isParentPath(firstPath, secondPath)
+
+`firstPath` [`Path`](https://github.com/ehmicky/wild-wild-path#paths)\
+`secondPath` [`Path`](https://github.com/ehmicky/wild-wild-path#paths)\
+_Return value_: `boolean`
+
+## isSameToken(firstToken, secondToken)
+
+`firstToken` [`Token`](https://github.com/ehmicky/wild-wild-path#query-arrays)\
+`secondToken` [`Token`](https://github.com/ehmicky/wild-wild-path#query-arrays)\
+_Return value_: `boolean`
+
+## getTokenType(token)
+
+`token` [`Token`](https://github.com/ehmicky/wild-wild-path#query-arrays)\
+_Return value_: `string`
 
 # Support
 
