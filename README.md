@@ -19,12 +19,6 @@ slices and unions.
 - Normalize queries
 - Compare queries
 
-# Examples
-
-```js
-
-```
-
 <!--
 
 # Demo
@@ -54,31 +48,52 @@ not `require()`.
 [`QueryString`](https://github.com/ehmicky/wild-wild-path#query-strings)\
 _Return value_: [`QueryArray`](https://github.com/ehmicky/wild-wild-path#query-arrays)
 
+Convert a
+[query string](https://github.com/ehmicky/wild-wild-path#query-strings) into a
+[query array](https://github.com/ehmicky/wild-wild-path#query-arrays).
+
 ## serializeQuery(queryArray)
 
 `queryArray`
 [`QueryArray`](https://github.com/ehmicky/wild-wild-path#query-arrays)\
 _Return value_: [`QueryString`](https://github.com/ehmicky/wild-wild-path#query-strings)
 
+Convert a [query array](https://github.com/ehmicky/wild-wild-path#query-arrays)
+into a [query string](https://github.com/ehmicky/wild-wild-path#query-strings).
+
 ## normalizeQuery(query)
 
 `queryString` [`Query`](https://github.com/ehmicky/wild-wild-path#queries)\
 _Return value_: [`QueryArray`](https://github.com/ehmicky/wild-wild-path#query-arrays)
+
+If the query is a
+[query string](https://github.com/ehmicky/wild-wild-path#query-strings), convert
+it into a [query array](https://github.com/ehmicky/wild-wild-path#query-arrays).
+If it is already a query array, normalize it to a canonical form.
 
 ## parsePath(pathString)
 
 `pathString` [`PathString`](https://github.com/ehmicky/wild-wild-path#paths)\
 _Return value_: [`PathArray`](https://github.com/ehmicky/wild-wild-path#paths)
 
+Same as [`parseQuery()`](#parsequeryquerystring) but only for a
+[path query](https://github.com/ehmicky/wild-wild-path#paths).
+
 ## serializePath(pathArray)
 
 `pathArray` [`PathArray`](https://github.com/ehmicky/wild-wild-path#paths)\
 _Return value_: [`PathString`](https://github.com/ehmicky/wild-wild-path#paths)
 
+Same as [`serializeQuery()`](#serializequeryqueryarray) but only for a
+[path query](https://github.com/ehmicky/wild-wild-path#paths).
+
 ## normalizePath(path)
 
 `pathString` [`Path`](https://github.com/ehmicky/wild-wild-path#paths)\
 _Return value_: [`PathArray`](https://github.com/ehmicky/wild-wild-path#paths)
+
+Same as [`normalizeQuery()`](#normalizequeryquery) but only for a
+[path query](https://github.com/ehmicky/wild-wild-path#paths).
 
 ## isSameQuery(firstQuery, secondQuery)
 
@@ -86,17 +101,28 @@ _Return value_: [`PathArray`](https://github.com/ehmicky/wild-wild-path#paths)
 `secondQuery` [`Query`](https://github.com/ehmicky/wild-wild-path#queries)\
 _Return value_: `boolean`
 
+Return `true` if both queries are the same, even if they use different formats
+([string](https://github.com/ehmicky/wild-wild-path#query-strings) or
+[array](https://github.com/ehmicky/wild-wild-path#query-arrays)) or if they are
+syntactically different but semantically identical.
+
 ## isSamePath(firstPath, secondPath)
 
 `firstPath` [`Path`](https://github.com/ehmicky/wild-wild-path#paths)\
 `secondPath` [`Path`](https://github.com/ehmicky/wild-wild-path#paths)\
 _Return value_: `boolean`
 
-## isParentPath(firstPath, secondPath)
+Same as [`isSameQuery()`](#issamepathfirstpath-secondpath) but only for a
+[path query](https://github.com/ehmicky/wild-wild-path#paths).
 
-`firstPath` [`Path`](https://github.com/ehmicky/wild-wild-path#paths)\
-`secondPath` [`Path`](https://github.com/ehmicky/wild-wild-path#paths)\
+## isParentPath(parentPath, childPath)
+
+`parentPath` [`Path`](https://github.com/ehmicky/wild-wild-path#paths)\
+`childPath` [`Path`](https://github.com/ehmicky/wild-wild-path#paths)\
 _Return value_: `boolean`
+
+Return `true` if the first argument is a parent path to the second. Queries that
+are not [paths](https://github.com/ehmicky/wild-wild-path#paths) cannot be used.
 
 ## isSameToken(firstToken, secondToken)
 
@@ -104,10 +130,19 @@ _Return value_: `boolean`
 `secondToken` [`Token`](https://github.com/ehmicky/wild-wild-path#query-arrays)\
 _Return value_: `boolean`
 
+Same as [`isSameQuery()`](#issamepathfirstpath-secondpath) but only for
+[query array](https://github.com/ehmicky/wild-wild-path#query-arrays) individual
+tokens.
+
 ## getTokenType(token)
 
 `token` [`Token`](https://github.com/ehmicky/wild-wild-path#query-arrays)\
 _Return value_: `string`
+
+Retrieve the type of a
+[query array](https://github.com/ehmicky/wild-wild-path#query-arrays) individual
+token among: `prop`, `index`, `slice`, `regExp`, `any` or `anyDeep`. `unknown`
+is returned if the token is invalid.
 
 # Support
 
