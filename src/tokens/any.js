@@ -1,4 +1,4 @@
-import isPlainObj from 'is-plain-obj'
+import { isTokenObject } from './common.js'
 
 // Create a token type with:
 //  - The string format being a specific string
@@ -17,7 +17,7 @@ const createSimpleTokenType = function (name, tokenString) {
 
 // Check the type of a parsed token
 const testObject = function (type, token) {
-  return isPlainObj(token) && token.type === type
+  return isTokenObject(token, type)
 }
 
 // Serialize a token to a string

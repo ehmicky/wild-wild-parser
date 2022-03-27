@@ -51,6 +51,10 @@ each(
     { queryArrays: [{ type: 'slice' }], output: '0:' },
     { queryArrays: [{ type: 'slice', from: 1, to: 1 }], output: '1:1' },
     { queryArrays: [{ type: 'slice', from: -1, to: -1 }], output: '-1:-1' },
+    {
+      queryArrays: [Object.create({}, { type: { value: 'slice' } })],
+      output: '0:',
+    },
     { queryArrays: [{ type: 'slice', other: true }], output: '0:' },
 
     // RegExp tokens
@@ -64,10 +68,18 @@ each(
 
     // any tokens
     { queryArrays: [{ type: 'any' }], output: '*' },
+    {
+      queryArrays: [Object.create({}, { type: { value: 'any' } })],
+      output: '*',
+    },
     { queryArrays: [{ type: 'any', other: true }], output: '*' },
 
     // anyDeep tokens
     { queryArrays: [{ type: 'anyDeep' }], output: '**' },
+    {
+      queryArrays: [Object.create({}, { type: { value: 'anyDeep' } })],
+      output: '**',
+    },
     { queryArrays: [{ type: 'anyDeep', other: true }], output: '**' },
   ],
   ({ title }, { queryArrays, output }) => {

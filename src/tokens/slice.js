@@ -1,14 +1,10 @@
-import isPlainObj from 'is-plain-obj'
-
+import { isTokenObject } from './common.js'
 import { INDEX_TOKEN } from './indices.js'
 
 // Check the type of a parsed token.
 const testObject = function (token) {
   return (
-    isPlainObj(token) &&
-    token.type === SLICE_TYPE &&
-    isEdge(token.from) &&
-    isEdge(token.to)
+    isTokenObject(token, SLICE_TYPE) && isEdge(token.from) && isEdge(token.to)
   )
 }
 
