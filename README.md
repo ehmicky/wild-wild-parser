@@ -6,19 +6,19 @@
 [![Twitter](https://img.shields.io/badge/%E2%80%8B-twitter-4cc61e.svg?logo=twitter)](https://twitter.com/intent/follow?screen_name=ehmicky)
 [![Medium](https://img.shields.io/badge/%E2%80%8B-medium-4cc61e.svg?logo=medium)](https://medium.com/@ehmicky)
 
-🤠 Parser for object property paths with wildcards and regexps.
+🤠 Parser for object property paths with wildcards and regexps. 🌵
 
 [`wild-wild-path`](https://github.com/ehmicky/wild-wild-path) is a library which
 gets/sets object properties using dot-delimited paths, wildcards, regexps,
 slices and unions. `wild-wild-parser` allows manipulating
 [its query format](https://github.com/ehmicky/wild-wild-path#queries):
 
-- [Parse](#parsequeryquerystring)/[serialize](#serializequeryqueryarray), i.e.
-  convert between
+- 🚂 [Parse](#parsequeryquerystring)/[serialize](#serializequeryqueryarray),
+  i.e. convert between
   [query strings](https://github.com/ehmicky/wild-wild-path#query-strings) and
   [query arrays](https://github.com/ehmicky/wild-wild-path#query-arrays)
-- [Normalize](#normalizequeryquery) queries
-- [Compare](#issamequeryfirstquery-secondquery) queries
+- ⭐ [Normalize](#normalizequeryquery) queries
+- 🗺️ [Compare](#issamequeryfirstquery-secondquery) queries
 
 # Install
 
