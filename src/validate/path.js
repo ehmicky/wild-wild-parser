@@ -1,4 +1,4 @@
-import { getPathObjectTokenType } from '../tokens/main.js'
+import { isPathToken } from '../tokens/main.js'
 
 import { throwQueryError, throwTokenError } from './throw.js'
 
@@ -34,22 +34,11 @@ export const normalizeArrayPath = function (path, query) {
 }
 
 const validateProp = function (prop, query) {
-  const tokenType = getPathObjectTokenType(prop)
-
-  if (tokenType === undefined) {
+  if (!isPathToken(prop)) {
     throwTokenError(
       query,
       prop,
-      'It must be a property name or an array index.',
+      'It must be a property name or a positive array index.',
     )
   }
-
-  if (isNegativeIndex(tokenType, prop)) {
-    throwTokenError(query, prop, 'It must not be a negative index.')
-  }
-}
-
-// Negative indices are not allowed in paths
-const isNegativeIndex = function (tokenType, prop) {
-  return tokenType.name === 'index' && (Object.is(prop, -0) || prop < 0)
 }
