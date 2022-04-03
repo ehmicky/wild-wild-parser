@@ -28,12 +28,12 @@ export const normalizeArrayPath = function (path, query) {
   }
 
   path.forEach((prop) => {
-    validateProp(prop, query)
+    validatePathToken(prop, query)
   })
   return path
 }
 
-const validateProp = function (prop, query) {
+const validatePathToken = function (prop, query) {
   if (!isPathToken(prop)) {
     throwTokenError(
       query,
