@@ -14,7 +14,8 @@ export const normalizeArraysPath = function (queryArrays, query) {
   }
 
   const [path] = queryArrays
-  return normalizeArrayPath(path, query)
+  validatePathTokens(path, query)
+  return path
 }
 
 // Ensure a queryArray is a path
@@ -27,10 +28,14 @@ export const normalizeArrayPath = function (path, query) {
     throwQueryError(query, 'It must not be a union.')
   }
 
+  validatePathTokens(path, query)
+  return path
+}
+
+const validatePathTokens = function (path, query) {
   path.forEach((prop) => {
     validatePathToken(prop, query)
   })
-  return path
 }
 
 const validatePathToken = function (prop, query) {
