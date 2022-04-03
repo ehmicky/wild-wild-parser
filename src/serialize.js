@@ -6,16 +6,20 @@ import { normalizeQueryArrays } from './validate/arrays.js'
 import { normalizeArrayPath } from './validate/path.js'
 
 // Inverse of `parseQuery()`
-export const serializeQuery = function (queryArrays) {
+const mSerializeQuery = function (queryArrays) {
   const queryArraysA = normalizeQueryArrays(queryArrays, queryArrays)
   return queryArraysA.map(serializeQueryArray).join(ARRAY_SEPARATOR)
 }
 
+export const serializeQuery = moize(mSerializeQuery, { maxSize: 1e3 })
+
 // Inverse of `parsePath()`
-export const serializePath = function (path) {
+const mSerializePath = function (path) {
   const pathA = normalizeArrayPath(path, path)
   return serializeQueryArray(pathA)
 }
+
+export const serializePath = moize(mSerializePath, { maxSize: 1e3 })
 
 const serializeQueryArray = function (queryArray) {
   return queryArray.every(isEmptyToken)
