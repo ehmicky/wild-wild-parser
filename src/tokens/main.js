@@ -1,5 +1,5 @@
 import { INDEX_TOKEN } from './indices.js'
-import { OTHER_TOKEN_TYPES } from './other.js'
+import { OTHER_STRING_TOKEN_TYPES, OTHER_OBJECT_TOKEN_TYPES } from './other.js'
 import { PROP_TOKEN } from './prop.js'
 
 // Retrieve the type name of a given token parsed object
@@ -12,22 +12,24 @@ const UNKNOWN_TYPE = 'unknown'
 
 // Retrieve the type of a given token parsed object
 export const getObjectTokenType = function (token) {
-  return TOKEN_TYPES.find((tokenType) => tokenType.testObject(token))
+  return OBJECT_TOKEN_TYPES.find((tokenType) => tokenType.testObject(token))
 }
 
 // Retrieve the type of a given token serialized string
 export const getStringTokenType = function (chars, isProp) {
   return isProp
     ? PROP_TOKEN
-    : TOKEN_TYPES.find((tokenType) => tokenType.testString(chars))
+    : STRING_TOKEN_TYPES.find((tokenType) => tokenType.testString(chars))
 }
 
-// Order is significant as they are tested serially
-const TOKEN_TYPES = [...OTHER_TOKEN_TYPES, PROP_TOKEN]
+// Order is significant as they are tested serially.
+// It is optimized for common use cases and performance.
+const STRING_TOKEN_TYPES = [...OTHER_STRING_TOKEN_TYPES, PROP_TOKEN]
+const OBJECT_TOKEN_TYPES = [PROP_TOKEN, ...OTHER_OBJECT_TOKEN_TYPES]
 
 // Like `getObjectTokenType()` but for paths
 export const getPathObjectTokenType = function (token) {
   return PATH_TOKEN_TYPES.find((tokenType) => tokenType.testObject(token))
 }
 
-const PATH_TOKEN_TYPES = [INDEX_TOKEN, PROP_TOKEN]
+const PATH_TOKEN_TYPES = [PROP_TOKEN, INDEX_TOKEN]
