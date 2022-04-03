@@ -1,6 +1,6 @@
 import { parsePath, parseQuery } from './parse/main.js'
 import { normalizeQueryArrays } from './validate/arrays.js'
-import { normalizeArrayPath } from './validate/path.js'
+import { validatePath } from './validate/path.js'
 import { isQueryString } from './validate/string.js'
 
 // There are two formats:
@@ -80,7 +80,12 @@ import { isQueryString } from './validate/string.js'
 // Parse a path string into an array of tokens.
 // If the query is already an array of tokens, only validate and normalize it.
 export const normalizePath = function (path) {
-  return isQueryString(path) ? parsePath(path) : normalizeArrayPath(path, path)
+  if (isQueryString(path)) {
+    return parsePath(path)
+  }
+
+  validatePath(path, path)
+  return path
 }
 
 // Same as `normalizePath()` but for any query

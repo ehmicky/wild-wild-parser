@@ -3,7 +3,7 @@ import moize from 'moize'
 import { TOKEN_SEPARATOR, ARRAY_SEPARATOR } from './tokens/escape.js'
 import { getObjectTokenType } from './tokens/main.js'
 import { normalizeQueryArrays } from './validate/arrays.js'
-import { normalizeArrayPath } from './validate/path.js'
+import { validatePath } from './validate/path.js'
 
 // Inverse of `parseQuery()`
 const mSerializeQuery = function (queryArrays) {
@@ -15,8 +15,8 @@ export const serializeQuery = moize(mSerializeQuery, { maxSize: 1e3 })
 
 // Inverse of `parsePath()`
 const mSerializePath = function (path) {
-  const pathA = normalizeArrayPath(path, path)
-  return serializeQueryArray(pathA)
+  validatePath(path, path)
+  return serializeQueryArray(path)
 }
 
 export const serializePath = moize(mSerializePath, { maxSize: 1e3 })

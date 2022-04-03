@@ -19,7 +19,7 @@ export const normalizeArraysPath = function (queryArrays, query) {
 }
 
 // Ensure a queryArray is a path
-export const normalizeArrayPath = function (path, query) {
+export const validatePath = function (path, query) {
   if (!Array.isArray(path)) {
     throwQueryError(query, 'It must be an array.')
   }
@@ -29,7 +29,6 @@ export const normalizeArrayPath = function (path, query) {
   }
 
   validatePathTokens(path, query)
-  return path
 }
 
 const validatePathTokens = function (path, query) {
