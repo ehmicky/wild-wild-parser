@@ -13,11 +13,12 @@ slices and unions.
 `wild-wild-parser` allows manipulating
 [its query format](https://github.com/ehmicky/wild-wild-path#queries):
 
-- Parse/serialize, i.e. convert between
+- [Parse](#parsequeryquerystring)/[serialize](#serializequeryqueryarray), i.e.
+  convert between
   [query strings](https://github.com/ehmicky/wild-wild-path#query-strings) and
   [query arrays](https://github.com/ehmicky/wild-wild-path#query-arrays)
-- Normalize queries
-- Compare queries
+- [Normalize](#normalizequeryquery) queries
+- [Compare](#issamequeryfirstquery-secondquery) queries
 
 # Install
 
@@ -52,7 +53,7 @@ into a [query string](https://github.com/ehmicky/wild-wild-path#query-strings).
 
 ## normalizeQuery(query)
 
-`queryString` [`Query`](https://github.com/ehmicky/wild-wild-path#queries)\
+`query` [`Query`](https://github.com/ehmicky/wild-wild-path#queries)\
 _Return value_: [`QueryArray`](https://github.com/ehmicky/wild-wild-path#query-arrays)
 
 If the query is a
@@ -78,7 +79,7 @@ Same as [`serializeQuery()`](#serializequeryqueryarray) but only for a
 
 ## normalizePath(path)
 
-`pathString` [`Path`](https://github.com/ehmicky/wild-wild-path#paths)\
+`path` [`Path`](https://github.com/ehmicky/wild-wild-path#paths)\
 _Return value_: [`PathArray`](https://github.com/ehmicky/wild-wild-path#paths)
 
 Same as [`normalizeQuery()`](#normalizequeryquery) but only for a
@@ -130,8 +131,8 @@ _Return value_: `string`
 
 Retrieve the type of a
 [query array](https://github.com/ehmicky/wild-wild-path#query-arrays) individual
-token among: `prop`, `index`, `slice`, `regExp`, `any` or `anyDeep`. `unknown`
-is returned if the token is invalid.
+token among: `"prop"`, `"index"`, `"slice"`, `"regExp"`, `"any"` or `"anyDeep"`.
+`"unknown"` is returned if the token is invalid.
 
 # Support
 
