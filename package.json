@@ -52,5 +52,8 @@
   },
   "engines": {
     "node": ">=12.20.0"
+  },
+  "dependencies": {
+    "moize": "^6.1.0"
   }
 }

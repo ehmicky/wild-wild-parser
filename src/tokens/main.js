@@ -1,3 +1,5 @@
+import moize from 'moize'
+
 import { INDEX_TOKEN } from './indices.js'
 import { OTHER_STRING_TOKEN_TYPES, OTHER_OBJECT_TOKEN_TYPES } from './other.js'
 import { PROP_TOKEN } from './prop.js'
@@ -11,16 +13,20 @@ export const getTokenType = function (token) {
 const UNKNOWN_TYPE = 'unknown'
 
 // Retrieve the type of a given token parsed object
-export const getObjectTokenType = function (token) {
+const mGetObjectTokenType = function (token) {
   return OBJECT_TOKEN_TYPES.find((tokenType) => tokenType.testObject(token))
 }
 
+export const getObjectTokenType = moize(mGetObjectTokenType, { maxSize: 1e3 })
+
 // Retrieve the type of a given token serialized string
-export const getStringTokenType = function (chars, isProp) {
+const mGetStringTokenType = function (chars, isProp) {
   return isProp
     ? PROP_TOKEN
     : STRING_TOKEN_TYPES.find((tokenType) => tokenType.testString(chars))
 }
+
+export const getStringTokenType = moize(mGetStringTokenType, { maxSize: 1e3 })
 
 // Order is significant as they are tested serially.
 // It is optimized for common use cases and performance.
@@ -28,8 +34,12 @@ const STRING_TOKEN_TYPES = [...OTHER_STRING_TOKEN_TYPES, PROP_TOKEN]
 const OBJECT_TOKEN_TYPES = [PROP_TOKEN, ...OTHER_OBJECT_TOKEN_TYPES]
 
 // Like `getObjectTokenType()` but for paths
-export const getPathObjectTokenType = function (token) {
+const mGetPathObjectTokenType = function (token) {
   return PATH_TOKEN_TYPES.find((tokenType) => tokenType.testObject(token))
 }
+
+export const getPathObjectTokenType = moize(mGetPathObjectTokenType, {
+  maxSize: 1e3,
+})
 
 const PATH_TOKEN_TYPES = [PROP_TOKEN, INDEX_TOKEN]
