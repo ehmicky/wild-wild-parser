@@ -41,7 +41,7 @@ Convert a
 [query array](https://github.com/ehmicky/wild-wild-path#query-arrays).
 
 ```js
-parseQuery('users.0.*') // ['users', 0, { type: 'any' }]
+parseQuery('users.0.*') // [['users', 0, { type: 'any' }]]
 parseQuery('users admins') // [['users'], ['admins']]
 parseQuery('users./[/') // Throws: invalid RegExp
 ```
@@ -77,7 +77,7 @@ normalizeQuery(['users']) // [['users']]
 normalizeQuery([['users'], ['admins']]) // [['users'], ['admins']]
 normalizeQuery([{ type: 'slice' }]) // [[{ type: 'slice', from: 0 }]]
 normalizeQuery('users./[/') // Throws: invalid RegExp
-normalizeQuery(true) // Throws: `true` is not a valid query
+normalizeQuery([true]) // Throws: `true` is not a valid query
 ```
 
 ## parsePath(pathString)
@@ -120,7 +120,7 @@ Same as [`normalizeQuery()`](#normalizequeryquery) but only for a
 normalizePath('users.0') // ['users', 0]
 normalizePath(['users', 0]) // ['users', 0]
 normalizePath('*') // Throws: `*` is a valid query but not a path
-normalizePath(true) // Throws: `true` is not a valid query
+normalizePath([true]) // Throws: `true` is not a valid query
 ```
 
 ## isSameQuery(firstQuery, secondQuery)
@@ -141,7 +141,7 @@ isSameQuery(['users', 0, { type: 'any' }], ['users', 0, { type: 'any' }]) // tru
 isSameQuery('users.0.*', 'users.1.*') // false
 isSameQuery('0:2', ':2') // true
 isSameQuery([['user']], ['user']) // true
-isSameQuery(true, 'user') // Throws: `true` is not a valid query
+isSameQuery([true], 'user') // Throws: `true` is not a valid query
 ```
 
 ## isSamePath(firstPath, secondPath)
@@ -159,7 +159,7 @@ isSamePath('user.name', ['user', 'name']) // true
 isSamePath(['user', 'name'], ['user', 'name']) // true
 isSamePath('user.name', 'user.lastName') // false
 isSamePath('*', 'user.name') // Throws: `*` is a valid query but not a path
-isSamePath(true, 'user.name') // Throws: `true` is not a valid query
+isSamePath([true], 'user.name') // Throws: `true` is not a valid query
 ```
 
 ## isParentPath(parentPath, childPath)
@@ -180,7 +180,7 @@ isParentPath('user', 'user') // false
 isParentPath('user.name', 'user') // false
 isParentPath('user.name', 'user.settings') // false
 isParentPath('*', 'user.name') // Throws: `*` is valid query but not a path
-isParentPath(true, 'user.name') // Throws: `true` is not a valid query
+isParentPath([true], 'user.name') // Throws: `true` is not a valid query
 ```
 
 ## isSameToken(firstToken, secondToken)
