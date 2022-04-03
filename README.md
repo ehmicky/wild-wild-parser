@@ -19,17 +19,6 @@ slices and unions.
 - Normalize queries
 - Compare queries
 
-<!--
-
-# Demo
-
-You can try this library:
-
-- either directly [in your browser](https://repl.it/@ehmicky/wild-wild-parser).
-- or by executing the [`examples` files](examples/README.md) in a terminal.
-
--->
-
 # Install
 
 ```bash
