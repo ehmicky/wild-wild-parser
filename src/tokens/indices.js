@@ -18,9 +18,7 @@ const testString = function (chars) {
 const INTEGER_REGEXP = /^-?\d+$/u
 
 // Parse a string into a token
-const parse = function (chars) {
-  return Number(chars)
-}
+const parse = Number
 
 // Normalize value after parsing or serializing
 const normalize = function (token) {
