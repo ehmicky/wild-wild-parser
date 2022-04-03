@@ -8,9 +8,7 @@
 
 [`wild-wild-path`](https://github.com/ehmicky/wild-wild-path) is a library which
 gets/sets object properties using dot-delimited paths, wildcards, regexps,
-slices and unions.
-
-`wild-wild-parser` allows manipulating
+slices and unions. `wild-wild-parser` allows manipulating
 [its query format](https://github.com/ehmicky/wild-wild-path#queries):
 
 - [Parse](#parsequeryquerystring)/[serialize](#serializequeryqueryarray), i.e.
