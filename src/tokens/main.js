@@ -34,12 +34,8 @@ const STRING_TOKEN_TYPES = [...OTHER_STRING_TOKEN_TYPES, PROP_TOKEN]
 const OBJECT_TOKEN_TYPES = [PROP_TOKEN, ...OTHER_OBJECT_TOKEN_TYPES]
 
 // Like `getObjectTokenType()` but for paths
-const mGetPathObjectTokenType = function (token) {
+export const getPathObjectTokenType = function (token) {
   return PATH_TOKEN_TYPES.find((tokenType) => tokenType.testObject(token))
 }
-
-export const getPathObjectTokenType = moize(mGetPathObjectTokenType, {
-  maxSize: 1e3,
-})
 
 const PATH_TOKEN_TYPES = [PROP_TOKEN, INDEX_TOKEN]
