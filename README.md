@@ -9,8 +9,13 @@
 🤠 Parser for object property paths with wildcards and regexps. 🌵
 
 [`wild-wild-path`](https://github.com/ehmicky/wild-wild-path) is a library which
-gets/sets object properties using dot-delimited paths, wildcards, regexps,
-slices and unions. `wild-wild-parser` allows manipulating
+gets/sets object properties using
+[dot-delimited paths](https://github.com/ehmicky/wild-wild-path#deep-properties),
+[wildcards](https://github.com/ehmicky/wild-wild-path#wildcards),
+[regexps](https://github.com/ehmicky/wild-wild-path#regexps),
+[slices](https://github.com/ehmicky/wild-wild-path#array-slices) and
+[unions](https://github.com/ehmicky/wild-wild-path#unions). `wild-wild-parser`
+allows manipulating
 [its query format](https://github.com/ehmicky/wild-wild-path#queries):
 
 - 🚂 [Parse](#parsequeryquerystring)/[serialize](#serializequeryqueryarray),
