@@ -1,3 +1,5 @@
+import moize from 'moize'
+
 import { TOKEN_SEPARATOR, ARRAY_SEPARATOR } from './tokens/escape.js'
 import { getObjectTokenType } from './tokens/main.js'
 import { normalizeQueryArrays } from './validate/arrays.js'
@@ -27,7 +29,9 @@ const isEmptyToken = function (token) {
 
 const EMPTY_TOKEN = ''
 
-const serializeToken = function (token, index) {
+const mSerializeToken = function (token, index) {
   const tokenType = getObjectTokenType(token)
   return tokenType.serialize(token, index)
 }
+
+const serializeToken = moize(mSerializeToken, { maxSize: 1e3 })
