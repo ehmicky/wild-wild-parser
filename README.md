@@ -235,6 +235,13 @@ getTokenType({ type: 'anyDeep' }) // "anyDeep"
 getTokenType(true) // "unknown"
 ```
 
+# Related projects
+
+- [`wild-wild-path`](https://github.com/ehmicky/wild-wild-path): get/set object
+  properties using `wild-wild-parser`'s paths
+- [`wild-wild-utils`](https://github.com/ehmicky/wild-wild-utils): functional
+  utilities using `wild-wild-parser`'s paths
+
 # Support
 
 For any question, _don't hesitate_ to [submit an issue on GitHub](../../issues).
