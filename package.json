@@ -46,7 +46,7 @@
     "test": "test"
   },
   "devDependencies": {
-    "@ehmicky/dev-tasks": "^1.0.76",
+    "@ehmicky/dev-tasks": "^1.0.77",
     "test-each": "^5.0.0",
     "tsd": "^0.20.0"
   },
