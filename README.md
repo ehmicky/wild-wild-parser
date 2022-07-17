@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/ehmicky/design/main/wild-wild-parser/wild-wild-parser.svg?sanitize=true" width="700"/>
+<img alt="wild-wild-parser logo" src="https://raw.githubusercontent.com/ehmicky/design/main/wild-wild-parser/wild-wild-parser.svg?sanitize=true" width="700"/>
 
 [![Codecov](https://img.shields.io/codecov/c/github/ehmicky/wild-wild-parser.svg?label=tested&logo=codecov)](https://codecov.io/gh/ehmicky/wild-wild-parser)
 [![Node](https://img.shields.io/node/v/wild-wild-parser.svg?logo=node.js)](https://www.npmjs.com/package/wild-wild-parser)
