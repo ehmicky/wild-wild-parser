@@ -9,8 +9,8 @@ interface AnyToken {
 }
 interface SliceToken {
   type: 'slice'
-  from?: IndexToken
-  to?: IndexToken
+  from?: IndexToken | undefined
+  to?: IndexToken | undefined
 }
 
 export type QueryToken = Readonly<
