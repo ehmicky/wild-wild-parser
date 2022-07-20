@@ -1,3 +1,5 @@
+import { expectType, expectError } from 'tsd'
+
 import {
   getTokenType,
   isSameToken,
@@ -19,8 +21,7 @@ import {
   QueryArray,
   Path,
   Query,
-} from 'wild-wild-parser'
-import { expectType, expectError } from 'tsd'
+} from './main.js'
 
 const pathToken: PathToken = 'prop'
 const queryToken: QueryToken = { type: 'any' }
