@@ -1,25 +1,19 @@
-import moize from 'moize'
-
 import { TOKEN_SEPARATOR, ARRAY_SEPARATOR } from './tokens/escape.js'
 import { getObjectTokenType } from './tokens/main.js'
 import { normalizeQueryArrays } from './validate/arrays.js'
 import { validatePath } from './validate/path.js'
 
 // Inverse of `parseQuery()`
-const mSerializeQuery = function (queryArrays) {
+export const serializeQuery = function (queryArrays) {
   const queryArraysA = normalizeQueryArrays(queryArrays, queryArrays)
   return queryArraysA.map(serializeQueryArray).join(ARRAY_SEPARATOR)
 }
 
-export const serializeQuery = moize(mSerializeQuery, { maxSize: 1e3 })
-
 // Inverse of `parsePath()`
-const mSerializePath = function (path) {
+export const serializePath = function (path) {
   validatePath(path, path)
   return serializeQueryArray(path)
 }
-
-export const serializePath = moize(mSerializePath, { maxSize: 1e3 })
 
 const serializeQueryArray = function (queryArray) {
   return queryArray.every(isEmptyToken)
@@ -33,9 +27,7 @@ const isEmptyToken = function (token) {
 
 const EMPTY_TOKEN = ''
 
-const mSerializeToken = function (token, index) {
+export const serializeToken = function (token, index) {
   const tokenType = getObjectTokenType(token)
   return tokenType.serialize(token, index)
 }
-
-const serializeToken = moize(mSerializeToken, { maxSize: 1e3 })

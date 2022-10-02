@@ -1,5 +1,3 @@
-import moize from 'moize'
-
 import { INDEX_TOKEN } from './indices.js'
 import { OTHER_STRING_TOKEN_TYPES, OTHER_OBJECT_TOKEN_TYPES } from './other.js'
 import { PROP_TOKEN } from './prop.js'
@@ -13,20 +11,16 @@ export const getTokenType = function (token) {
 const UNKNOWN_TYPE = 'unknown'
 
 // Retrieve the type of a given token parsed object
-const mGetObjectTokenType = function (token) {
+export const getObjectTokenType = function (token) {
   return OBJECT_TOKEN_TYPES.find((tokenType) => tokenType.testObject(token))
 }
 
-export const getObjectTokenType = moize(mGetObjectTokenType, { maxSize: 1e3 })
-
 // Retrieve the type of a given token serialized string
-const mGetStringTokenType = function (chars, isProp) {
+export const getStringTokenType = function (chars, isProp) {
   return isProp
     ? PROP_TOKEN
     : STRING_TOKEN_TYPES.find((tokenType) => tokenType.testString(chars))
 }
-
-export const getStringTokenType = moize(mGetStringTokenType, { maxSize: 1e3 })
 
 // Order is significant as they are tested serially.
 // It is optimized for common use cases and performance.
