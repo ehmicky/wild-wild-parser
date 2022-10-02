@@ -99,7 +99,6 @@ each(
     [{}],
     // eslint-disable-next-line no-magic-numbers
     [0.1],
-    // eslint-disable-next-line no-magic-numbers
     [1n],
     [Number.POSITIVE_INFINITY],
     [Number.NaN],
