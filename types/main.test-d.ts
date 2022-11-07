@@ -21,7 +21,7 @@ import {
   QueryArray,
   Path,
   Query,
-} from './main.js'
+} from 'wild-wild-parser'
 
 const pathToken: PathToken = 'prop'
 const queryToken: QueryToken = { type: 'any' }
