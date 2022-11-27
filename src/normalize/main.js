@@ -1,7 +1,7 @@
-import { parsePath, parseQuery } from './parse/main.js'
-import { normalizeQueryArrays } from './validate/arrays.js'
-import { validatePath } from './validate/path.js'
-import { isQueryString } from './validate/string.js'
+import { parsePath, parseQuery } from '../parse/main.js'
+import { normalizeQueryArrays } from '../validate/arrays.js'
+import { validatePath } from '../validate/path.js'
+import { isQueryString } from '../validate/string.js'
 
 // There are two formats:
 //  - Query string

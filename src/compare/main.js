@@ -1,5 +1,5 @@
-import { normalizeQuery, normalizePath } from './normalize.js'
-import { getValidTokenType } from './validate/token.js'
+import { normalizeQuery, normalizePath } from '../normalize/main.js'
+import { getValidTokenType } from '../validate/token.js'
 
 // Check if two queries are equal.
 // Works with:
