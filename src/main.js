@@ -6,5 +6,5 @@ export {
 } from './compare.js'
 export { normalizeQuery, normalizePath } from './normalize.js'
 export { parseQuery, parsePath } from './parse/main.js'
-export { serializeQuery, serializePath } from './serialize/main.js'
+export { serializeQuery, serializePath } from './serialize.js'
 export { getTokenType } from './tokens/main.js'
