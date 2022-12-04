@@ -1,12 +1,17 @@
 type RegExpToken = RegExp
+
 type IndexToken = number
+
 type PropToken = string
+
 interface AnyDeepToken {
   type: 'anyDeep'
 }
+
 interface AnyToken {
   type: 'any'
 }
+
 interface SliceToken {
   type: 'slice'
   from?: IndexToken | undefined

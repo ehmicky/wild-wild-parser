@@ -1,4 +1,4 @@
-import { expectType } from 'tsd'
+import { expectType, expectAssignable } from 'tsd'
 
 import {
   getTokenType,
@@ -12,28 +12,28 @@ import {
   serializeQuery,
   normalizePath,
   normalizeQuery,
-  QueryToken,
-  PathToken,
-  TokenType,
-  PathString,
-  QueryString,
-  PathArray,
-  QueryArray,
-  Path,
-  Query,
+  type QueryToken,
+  type PathToken,
+  type TokenType,
+  type PathString,
+  type QueryString,
+  type PathArray,
+  type QueryArray,
+  type Path,
+  type Query,
 } from 'wild-wild-parser'
 
-const pathToken: PathToken = 'prop'
-const queryToken: QueryToken = { type: 'any' }
-const pathArray: PathArray = ['prop']
-const queryArray: QueryArray = [{ type: 'any' }]
-const pathString: PathString = 'prop'
-const queryString: QueryString = '*'
-const tokenType: TokenType = 'index'
-const pathA: Path = ['prop']
-const pathB: Path = 'prop'
-const queryA: Query = [{ type: 'any' }]
-const queryB: Query = '*'
+expectAssignable<PathToken>('prop')
+expectAssignable<QueryToken>({ type: 'any' })
+expectAssignable<PathArray>(['prop'])
+expectAssignable<QueryArray>([{ type: 'any' }])
+expectAssignable<PathString>('prop')
+expectAssignable<QueryString>('*')
+expectAssignable<TokenType>('index')
+expectAssignable<Path>(['prop'])
+expectAssignable<Path>('prop')
+expectAssignable<Query>([{ type: 'any' }])
+expectAssignable<Query>('*')
 
 expectType<TokenType>(getTokenType('prop'))
 // @ts-expect-error
@@ -44,7 +44,7 @@ getTokenType({ type: 'anyDeep' })
 // @ts-expect-error
 getTokenType({ type: 'any', other: true })
 getTokenType({ type: 'any' })
-getTokenType(/regexp/)
+getTokenType(/regexp/u)
 getTokenType('prop')
 getTokenType(0)
 getTokenType(-0)

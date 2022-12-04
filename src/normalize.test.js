@@ -1,5 +1,6 @@
 import test from 'ava'
 import { each } from 'test-each'
+
 import { normalizePath, normalizeQuery } from 'wild-wild-parser'
 
 each(
