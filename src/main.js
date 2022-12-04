@@ -3,7 +3,7 @@ export {
   isSamePath,
   isSameToken,
   isParentPath,
-} from './compare/main.js'
+} from './compare.js'
 export { normalizeQuery, normalizePath } from './normalize/main.js'
 export { parseQuery, parsePath } from './parse/main.js'
 export { serializeQuery, serializePath } from './serialize/main.js'
