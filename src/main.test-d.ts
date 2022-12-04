@@ -1,4 +1,4 @@
-import { expectType, expectError } from 'tsd'
+import { expectType } from 'tsd'
 
 import {
   getTokenType,
@@ -36,10 +36,13 @@ const queryA: Query = [{ type: 'any' }]
 const queryB: Query = '*'
 
 expectType<TokenType>(getTokenType('prop'))
-expectError(getTokenType({ type: 'other' }))
-expectError(getTokenType({ type: 'anyDeep', other: true }))
+// @ts-expect-error
+getTokenType({ type: 'other' })
+// @ts-expect-error
+getTokenType({ type: 'anyDeep', other: true })
 getTokenType({ type: 'anyDeep' })
-expectError(getTokenType({ type: 'any', other: true }))
+// @ts-expect-error
+getTokenType({ type: 'any', other: true })
 getTokenType({ type: 'any' })
 getTokenType(/regexp/)
 getTokenType('prop')
@@ -48,28 +51,39 @@ getTokenType(-0)
 getTokenType({ type: 'slice' })
 getTokenType({ type: 'slice', from: undefined, to: undefined })
 getTokenType({ type: 'slice', from: 0, to: 1 })
-expectError(getTokenType({ type: 'slice', other: true }))
+// @ts-expect-error
+getTokenType({ type: 'slice', other: true })
 
 expectType<boolean>(isSameToken(0, '0'))
-expectError(isSameToken(0, true))
+// @ts-expect-error
+isSameToken(0, true)
 expectType<boolean>(isSamePath([0], '0'))
-expectError(isSamePath([0], true))
+// @ts-expect-error
+isSamePath([0], true)
 expectType<boolean>(isParentPath([0], '0'))
-expectError(isParentPath([0], true))
+// @ts-expect-error
+isParentPath([0], true)
 expectType<boolean>(isSameQuery([{ type: 'any' }], '*'))
-expectError(isSameQuery([{ type: 'any' }], true))
+// @ts-expect-error
+isSameQuery([{ type: 'any' }], true)
 
 expectType<PathArray>(parsePath('prop'))
-expectError(parsePath(true))
+// @ts-expect-error
+parsePath(true)
 expectType<QueryArray>(parseQuery('*'))
-expectError(parseQuery(true))
+// @ts-expect-error
+parseQuery(true)
 expectType<PathString>(serializePath(['prop']))
-expectError(serializePath(true))
+// @ts-expect-error
+serializePath(true)
 expectType<QueryString>(serializeQuery([{ type: 'any' }]))
-expectError(serializeQuery(true))
+// @ts-expect-error
+serializeQuery(true)
 expectType<PathArray>(normalizePath('prop'))
 normalizePath(['prop'])
-expectError(normalizePath(true))
+// @ts-expect-error
+normalizePath(true)
 expectType<QueryArray>(normalizeQuery('*'))
 normalizeQuery([{ type: 'any' }])
-expectError(normalizeQuery(true))
+// @ts-expect-error
+normalizeQuery(true)
