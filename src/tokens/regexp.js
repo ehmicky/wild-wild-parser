@@ -1,9 +1,7 @@
 import { escapeSpecialChars } from './escape.js'
 
 // Check the type of a parsed token
-const testObject = function (token) {
-  return token instanceof RegExp
-}
+const testObject = (token) => token instanceof RegExp
 
 // Serialize a token to a string.
 // We need to escape characters with special meaning in parsing.
@@ -11,19 +9,18 @@ const testObject = function (token) {
 //  - `new RegExp()` reverts this, but also allows them not be backslash escaped
 //  - This means '/a/b/' and '/a\\/b/' queries are equivalent, but normalized
 //    to the latter when parsing or serializing.
-const serialize = function (token) {
+const serialize = (token) => {
   const source = escapeSpecialChars(token.source)
   return `${REGEXP_DELIM}${source}${REGEXP_DELIM}${token.flags}`
 }
 
 // Check the type of a serialized token
-const testString = function (chars) {
-  return chars[0] === REGEXP_DELIM && chars.lastIndexOf(REGEXP_DELIM) > 1
-}
+const testString = (chars) =>
+  chars[0] === REGEXP_DELIM && chars.lastIndexOf(REGEXP_DELIM) > 1
 
 // Parse a string into a token
 // This might throw if the RegExp is invalid.
-const parse = function (chars) {
+const parse = (chars) => {
   const endIndex = chars.lastIndexOf(REGEXP_DELIM)
   const regExpString = chars.slice(1, endIndex)
   const regExpFlags = chars.slice(endIndex + 1)
@@ -33,18 +30,13 @@ const parse = function (chars) {
 const REGEXP_DELIM = '/'
 
 // Normalize value after parsing or serializing
-const normalize = function (token) {
-  return token
-}
+const normalize = (token) => token
 
 // Check if two tokens are the same
-const equals = function (tokenA, tokenB) {
-  return (
-    tokenA.source === tokenB.source &&
-    tokenA.flags === tokenB.flags &&
-    tokenA.lastIndex === tokenB.lastIndex
-  )
-}
+const equals = (tokenA, tokenB) =>
+  tokenA.source === tokenB.source &&
+  tokenA.flags === tokenB.flags &&
+  tokenA.lastIndex === tokenB.lastIndex
 
 export const REGEXP_TOKEN = {
   name: 'regExp',

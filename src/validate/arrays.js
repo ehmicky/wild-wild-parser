@@ -2,7 +2,7 @@ import { throwQueryError } from './throw.js'
 import { normalizeToken } from './token.js'
 
 // Normalize query arrays
-export const normalizeQueryArrays = function (queryArrays, query) {
+export const normalizeQueryArrays = (queryArrays, query) => {
   validateQueryArrays(queryArrays, query)
   const queryArraysA =
     queryArrays.every(Array.isArray) && queryArrays.length !== 0
@@ -13,12 +13,11 @@ export const normalizeQueryArrays = function (queryArrays, query) {
   )
 }
 
-const validateQueryArrays = function (queryArrays, query) {
+const validateQueryArrays = (queryArrays, query) => {
   if (!Array.isArray(queryArrays)) {
     throwQueryError(query, 'It must be an array.')
   }
 }
 
-const normalizeQueryArray = function (queryArray, query) {
-  return queryArray.map((token) => normalizeToken(token, query))
-}
+const normalizeQueryArray = (queryArray, query) =>
+  queryArray.map((token) => normalizeToken(token, query))

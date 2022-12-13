@@ -8,7 +8,7 @@ import { throwQueryError, throwTokenError } from './throw.js'
 //  - Only prop and index tokens (positive only)
 // Those are the ones exposed in output, as opposed to query arrays which are
 // exposed in input.
-export const normalizeArraysPath = function (queryArrays, query) {
+export const normalizeArraysPath = (queryArrays, query) => {
   if (queryArrays.length !== 1) {
     throwQueryError(query, 'It must not be a union.')
   }
@@ -19,7 +19,7 @@ export const normalizeArraysPath = function (queryArrays, query) {
 }
 
 // Ensure a queryArray is a path
-export const validatePath = function (path, query) {
+export const validatePath = (path, query) => {
   if (!Array.isArray(path)) {
     throwQueryError(query, 'It must be an array.')
   }
@@ -31,13 +31,13 @@ export const validatePath = function (path, query) {
   validatePathTokens(path, query)
 }
 
-const validatePathTokens = function (path, query) {
+const validatePathTokens = (path, query) => {
   path.forEach((prop) => {
     validatePathToken(prop, query)
   })
 }
 
-const validatePathToken = function (prop, query) {
+const validatePathToken = (prop, query) => {
   if (!isPathToken(prop)) {
     throwTokenError(
       query,

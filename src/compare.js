@@ -6,7 +6,7 @@ import { getValidTokenType } from './validate/token.js'
 //  - Normalization, e.g. `:` === `0:`
 //  - Unions, e.g. `a b` === `b a`
 //  - Duplicates, e.g. `a a` === `a`
-export const isSameQuery = function (queryA, queryB) {
+export const isSameQuery = (queryA, queryB) => {
   const queryArraysA = normalizeQuery(queryA)
   const queryArraysB = normalizeQuery(queryB)
   return (
@@ -19,30 +19,22 @@ export const isSameQuery = function (queryA, queryB) {
   )
 }
 
-const hasSameQueryArray = function (queryArrays, queryArrayA) {
-  return queryArrays.some((queryArrayB) =>
-    isSameQueryArray(queryArrayA, queryArrayB),
-  )
-}
+const hasSameQueryArray = (queryArrays, queryArrayA) =>
+  queryArrays.some((queryArrayB) => isSameQueryArray(queryArrayA, queryArrayB))
 
 // Check if two paths are equal
-export const isSamePath = function (pathA, pathB) {
+export const isSamePath = (pathA, pathB) => {
   const pathC = normalizePath(pathA)
   const pathD = normalizePath(pathB)
   return isSameQueryArray(pathC, pathD)
 }
 
-const isSameQueryArray = function (queryArrayA, queryArrayB) {
-  return (
-    queryArrayA.length === queryArrayB.length &&
-    queryArrayA.every((tokenA, index) =>
-      isSameToken(tokenA, queryArrayB[index]),
-    )
-  )
-}
+const isSameQueryArray = (queryArrayA, queryArrayB) =>
+  queryArrayA.length === queryArrayB.length &&
+  queryArrayA.every((tokenA, index) => isSameToken(tokenA, queryArrayB[index]))
 
 // Check if a path is a parent to another
-export const isParentPath = function (parentPath, childPath) {
+export const isParentPath = (parentPath, childPath) => {
   const parentPathA = normalizePath(parentPath)
   const childPathA = normalizePath(childPath)
   return (
@@ -56,7 +48,7 @@ export const isParentPath = function (parentPath, childPath) {
 }
 
 // Check if two tokens are equal
-export const isSameToken = function (tokenA, tokenB) {
+export const isSameToken = (tokenA, tokenB) => {
   if (Object.is(tokenA, tokenB)) {
     return true
   }

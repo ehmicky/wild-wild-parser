@@ -3,19 +3,19 @@ import { getObjectTokenType } from '../tokens/main.js'
 import { throwTokenError } from './throw.js'
 
 // Normalize a token
-export const normalizeToken = function (token, query) {
+export const normalizeToken = (token, query) => {
   const tokenType = getValidTokenType(token, query)
   return tokenType.normalize(token)
 }
 
 // Also validate that a token has an existing type
-export const getValidTokenType = function (token, query) {
+export const getValidTokenType = (token, query) => {
   const tokenType = getObjectTokenType(token)
   validateToken(tokenType, token, query)
   return tokenType
 }
 
-const validateToken = function (tokenType, token, query) {
+const validateToken = (tokenType, token, query) => {
   if (tokenType === undefined) {
     throwTokenError(
       query,

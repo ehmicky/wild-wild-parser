@@ -2,12 +2,10 @@ import { ESCAPE, TOKEN_SEPARATOR, escapeSpecialChars } from './escape.js'
 import { getOtherStringTokenType } from './other.js'
 
 // Check the type of a parsed token
-const testObject = function (token) {
-  return typeof token === 'string'
-}
+const testObject = (token) => typeof token === 'string'
 
 // Serialize a token to a string
-const serialize = function (token, index) {
+const serialize = (token, index) => {
   if (token === '' && index === 0) {
     return TOKEN_SEPARATOR
   }
@@ -19,24 +17,16 @@ const serialize = function (token, index) {
 }
 
 // Check the type of a serialized token
-const testString = function () {
-  return true
-}
+const testString = () => true
 
 // Parse a string into a token
-const parse = function (chars) {
-  return chars
-}
+const parse = (chars) => chars
 
 // Normalize value after parsing or serializing
-const normalize = function (token) {
-  return token
-}
+const normalize = (token) => token
 
 // Check if two tokens are the same
-const equals = function (tokenA, tokenB) {
-  return tokenA === tokenB
-}
+const equals = (tokenA, tokenB) => tokenA === tokenB
 
 export const PROP_TOKEN = {
   name: 'prop',

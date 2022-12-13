@@ -61,7 +61,7 @@ each(
   },
 )
 
-const setLastIndex = function (regExp, string) {
+const setLastIndex = (regExp, string) => {
   regExp.test(string)
   return regExp
 }

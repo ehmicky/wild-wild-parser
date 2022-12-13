@@ -1,19 +1,13 @@
 // Check the type of a parsed token.
 // Integers specified as string tokens are assumed to be property names, not
 // array indices.
-export const testObject = function (token) {
-  return Number.isInteger(token)
-}
+export const testObject = (token) => Number.isInteger(token)
 
 // Serialize a token to a string
-const serialize = function (token) {
-  return Object.is(token, -0) ? '-0' : String(token)
-}
+const serialize = (token) => (Object.is(token, -0) ? '-0' : String(token))
 
 // Check the type of a serialized token
-const testString = function (chars) {
-  return INTEGER_REGEXP.test(chars)
-}
+const testString = (chars) => INTEGER_REGEXP.test(chars)
 
 const INTEGER_REGEXP = /^-?\d+$/u
 
@@ -21,14 +15,10 @@ const INTEGER_REGEXP = /^-?\d+$/u
 const parse = Number
 
 // Normalize value after parsing or serializing
-const normalize = function (token) {
-  return token
-}
+const normalize = (token) => token
 
 // Check if two tokens are the same
-const equals = function (tokenA, tokenB) {
-  return Object.is(tokenA, tokenB)
-}
+const equals = (tokenA, tokenB) => Object.is(tokenA, tokenB)
 
 export const INDEX_TOKEN = {
   name: 'index',

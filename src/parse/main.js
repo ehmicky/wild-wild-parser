@@ -5,13 +5,13 @@ import { parseQueryString } from './query.js'
 
 // Parse a query string into an array of tokens.
 // Also validate and normalize it.
-export const parsePath = function (pathString) {
+export const parsePath = (pathString) => {
   const queryArrays = parseQuery(pathString)
   return normalizeArraysPath(queryArrays, pathString)
 }
 
 // Same as `parsePath()` but for any query
-export const parseQuery = function (queryString) {
+export const parseQuery = (queryString) => {
   validateQueryString(queryString)
   const queryArrays = parseQueryString(queryString)
   validateEmptyQuery(queryArrays, queryString)

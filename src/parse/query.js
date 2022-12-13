@@ -6,7 +6,7 @@ import { parseEscape } from './escape.js'
 // Parse a query string.
 // Use imperative logic for performance
 // eslint-disable-next-line complexity
-export const parseQueryString = function (queryString) {
+export const parseQueryString = (queryString) => {
   const state = getInitialState()
 
   // eslint-disable-next-line fp/no-loops
@@ -28,14 +28,14 @@ export const parseQueryString = function (queryString) {
   return state.arrays
 }
 
-const getInitialState = function () {
+const getInitialState = () => {
   const state = { arrays: [], index: 0 }
   resetQueryArrayState(state)
   resetTokenState(state)
   return state
 }
 
-const addQueryArray = function (state) {
+const addQueryArray = (state) => {
   if (hasNoQueryArray(state)) {
     return
   }
@@ -50,19 +50,16 @@ const addQueryArray = function (state) {
 }
 
 // When the query is an empty string or when two spaces are consecutive
-const hasNoQueryArray = function (state) {
-  return (
-    state.firstToken && state.chars.length === 0 && state.array.length === 0
-  )
-}
+const hasNoQueryArray = (state) =>
+  state.firstToken && state.chars.length === 0 && state.array.length === 0
 
-const resetQueryArrayState = function (state) {
+const resetQueryArrayState = (state) => {
   state.array = []
   state.firstToken = true
   state.onlyDots = true
 }
 
-const addToken = function (state) {
+const addToken = (state) => {
   if (handleLeadingDot(state)) {
     return
   }
@@ -82,13 +79,11 @@ const addToken = function (state) {
 //    to an empty string)
 // However, we create ambiguities for queries with only dots (including a
 // lone dot), where the last dot should not create an additional token.
-const hasOnlyDots = function (state) {
-  return state.onlyDots && state.chars.length === 0
-}
+const hasOnlyDots = (state) => state.onlyDots && state.chars.length === 0
 
 // We ignore leading dots, because they are used to represent the root.
 // We do not require them for simplicity.
-const handleLeadingDot = function (state) {
+const handleLeadingDot = (state) => {
   if (!state.firstToken) {
     return false
   }
@@ -97,7 +92,7 @@ const handleLeadingDot = function (state) {
   return state.chars.length === 0
 }
 
-const resetTokenState = function (state) {
+const resetTokenState = (state) => {
   state.isProp = false
   state.chars = ''
 }

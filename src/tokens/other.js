@@ -5,11 +5,8 @@ import { SLICE_TOKEN } from './slice.js'
 
 // Retrieve the type of a given token serialized string, except the default
 // one (property name string)
-export const getOtherStringTokenType = function (chars) {
-  return OTHER_STRING_TOKEN_TYPES.find((tokenType) =>
-    tokenType.testString(chars),
-  )
-}
+export const getOtherStringTokenType = (chars) =>
+  OTHER_STRING_TOKEN_TYPES.find((tokenType) => tokenType.testString(chars))
 
 // Order is significant as they are tested serially.
 // It is optimized for common use cases and performance.

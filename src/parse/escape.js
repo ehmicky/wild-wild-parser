@@ -7,7 +7,7 @@ import {
 import { throwQueryError } from '../validate/throw.js'
 
 // Parse escape character in a query string
-export const parseEscape = function (state, queryString) {
+export const parseEscape = (state, queryString) => {
   const nextChar = queryString[state.index + 1]
 
   if (SPECIAL_CHARS.has(nextChar)) {

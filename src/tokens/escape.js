@@ -14,8 +14,7 @@ export const TOKEN_SEPARATOR = '.'
 export const SPECIAL_CHARS = new Set([ESCAPE, TOKEN_SEPARATOR, ARRAY_SEPARATOR])
 
 // Escape special characters
-export const escapeSpecialChars = function (string) {
-  return string.replace(SPECIAL_CHARS_REGEXP, `${ESCAPE}$&`)
-}
+export const escapeSpecialChars = (string) =>
+  string.replace(SPECIAL_CHARS_REGEXP, `${ESCAPE}$&`)
 
 const SPECIAL_CHARS_REGEXP = /[\\. ]/gu
