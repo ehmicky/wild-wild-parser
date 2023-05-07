@@ -1,6 +1,5 @@
 import test from 'ava'
 import { each } from 'test-each'
-
 import { parseQuery } from 'wild-wild-parser'
 
 each(

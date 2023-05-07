@@ -1,5 +1,4 @@
 import { expectType, expectAssignable } from 'tsd'
-
 import {
   getTokenType,
   isSameToken,
