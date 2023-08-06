@@ -42,7 +42,10 @@
   ],
   "license": "Apache-2.0",
   "homepage": "https://www.github.com/ehmicky/wild-wild-parser",
-  "repository": "ehmicky/wild-wild-parser",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ehmicky/wild-wild-parser.git"
+  },
   "bugs": {
     "url": "https://github.com/ehmicky/wild-wild-parser/issues"
   },
