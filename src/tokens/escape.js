@@ -15,6 +15,6 @@ export const SPECIAL_CHARS = new Set([ESCAPE, TOKEN_SEPARATOR, ARRAY_SEPARATOR])
 
 // Escape special characters
 export const escapeSpecialChars = (string) =>
-  string.replace(SPECIAL_CHARS_REGEXP, `${ESCAPE}$&`)
+  string.replaceAll(SPECIAL_CHARS_REGEXP, `${ESCAPE}$&`)
 
 const SPECIAL_CHARS_REGEXP = /[\\. ]/gu
