@@ -57,7 +57,8 @@ not CommonJS.
 
 `queryString`
 [`QueryString`](https://github.com/ehmicky/wild-wild-path#query-strings)\
-_Return value_: [`QueryArray`](https://github.com/ehmicky/wild-wild-path#query-arrays)
+_Return value_:
+[`QueryArray`](https://github.com/ehmicky/wild-wild-path#query-arrays)
 
 Convert a
 [query string](https://github.com/ehmicky/wild-wild-path#query-strings) into a
@@ -73,7 +74,8 @@ parseQuery('users./[/') // Throws: invalid RegExp
 
 `queryArray`
 [`QueryArray`](https://github.com/ehmicky/wild-wild-path#query-arrays)\
-_Return value_: [`QueryString`](https://github.com/ehmicky/wild-wild-path#query-strings)
+_Return value_:
+[`QueryString`](https://github.com/ehmicky/wild-wild-path#query-strings)
 
 Convert a [query array](https://github.com/ehmicky/wild-wild-path#query-arrays)
 into a [query string](https://github.com/ehmicky/wild-wild-path#query-strings).
@@ -87,7 +89,8 @@ serializeQuery([true]) // Throws: `true` is not a valid query
 ## normalizeQuery(query)
 
 `query` [`Query`](https://github.com/ehmicky/wild-wild-path#queries)\
-_Return value_: [`QueryArray`](https://github.com/ehmicky/wild-wild-path#query-arrays)
+_Return value_:
+[`QueryArray`](https://github.com/ehmicky/wild-wild-path#query-arrays)
 
 If the query is a
 [query string](https://github.com/ehmicky/wild-wild-path#query-strings), convert
