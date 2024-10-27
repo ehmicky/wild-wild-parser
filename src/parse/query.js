@@ -5,7 +5,6 @@ import { parseEscape } from './escape.js'
 
 // Parse a query string.
 // Use imperative logic for performance
-// eslint-disable-next-line complexity
 export const parseQueryString = (queryString) => {
   const state = getInitialState()
 
@@ -44,7 +43,6 @@ const addQueryArray = (state) => {
     addToken(state)
   }
 
-  // eslint-disable-next-line fp/no-mutating-methods
   state.arrays.push(state.array)
   resetQueryArrayState(state)
 }
@@ -67,7 +65,6 @@ const addToken = (state) => {
   state.onlyDots = hasOnlyDots(state)
   const tokenType = getStringTokenType(state.chars, state.isProp)
   const token = tokenType.normalize(tokenType.parse(state.chars))
-  // eslint-disable-next-line fp/no-mutating-methods
   state.array.push(token)
   resetTokenState(state)
 }
