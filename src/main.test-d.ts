@@ -1,26 +1,26 @@
-import { expectType, expectAssignable } from 'tsd'
+import { expectAssignable, expectType } from 'tsd'
 
 import {
   getTokenType,
-  isSameToken,
-  isSamePath,
   isParentPath,
+  isSamePath,
   isSameQuery,
+  isSameToken,
+  normalizePath,
+  normalizeQuery,
   parsePath,
   parseQuery,
   serializePath,
   serializeQuery,
-  normalizePath,
-  normalizeQuery,
-  type QueryToken,
-  type PathToken,
-  type TokenType,
-  type PathString,
-  type QueryString,
-  type PathArray,
-  type QueryArray,
   type Path,
+  type PathArray,
+  type PathString,
+  type PathToken,
   type Query,
+  type QueryArray,
+  type QueryString,
+  type QueryToken,
+  type TokenType,
 } from 'wild-wild-parser'
 
 expectAssignable<PathToken>('prop')

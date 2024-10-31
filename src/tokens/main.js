@@ -1,5 +1,5 @@
 import { INDEX_TOKEN } from './indices.js'
-import { OTHER_STRING_TOKEN_TYPES, OTHER_OBJECT_TOKEN_TYPES } from './other.js'
+import { OTHER_OBJECT_TOKEN_TYPES, OTHER_STRING_TOKEN_TYPES } from './other.js'
 import { PROP_TOKEN } from './prop.js'
 
 // Retrieve the type name of a given token parsed object

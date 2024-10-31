@@ -1,8 +1,8 @@
 import {
-  ESCAPE,
   ARRAY_SEPARATOR_NAME,
-  TOKEN_SEPARATOR,
+  ESCAPE,
   SPECIAL_CHARS,
+  TOKEN_SEPARATOR,
 } from '../tokens/escape.js'
 import { throwQueryError } from '../validate/throw.js'
 

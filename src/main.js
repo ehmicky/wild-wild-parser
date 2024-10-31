@@ -1,10 +1,10 @@
 export {
-  isSameQuery,
-  isSamePath,
-  isSameToken,
   isParentPath,
+  isSamePath,
+  isSameQuery,
+  isSameToken,
 } from './compare.js'
-export { normalizeQuery, normalizePath } from './normalize.js'
-export { parseQuery, parsePath } from './parse/main.js'
-export { serializeQuery, serializePath } from './serialize.js'
+export { normalizePath, normalizeQuery } from './normalize.js'
+export { parsePath, parseQuery } from './parse/main.js'
+export { serializePath, serializeQuery } from './serialize.js'
 export { getTokenType } from './tokens/main.js'

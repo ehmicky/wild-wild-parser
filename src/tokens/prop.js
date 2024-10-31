@@ -1,4 +1,4 @@
-import { ESCAPE, TOKEN_SEPARATOR, escapeSpecialChars } from './escape.js'
+import { ESCAPE, escapeSpecialChars, TOKEN_SEPARATOR } from './escape.js'
 import { getOtherStringTokenType } from './other.js'
 
 // Check the type of a parsed token

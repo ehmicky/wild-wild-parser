@@ -2,10 +2,10 @@ import test from 'ava'
 import { each } from 'test-each'
 
 import {
+  isParentPath,
   isSamePath,
   isSameQuery,
   isSameToken,
-  isParentPath,
 } from 'wild-wild-parser'
 
 each(

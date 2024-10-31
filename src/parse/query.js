@@ -1,4 +1,4 @@
-import { ESCAPE, ARRAY_SEPARATOR, TOKEN_SEPARATOR } from '../tokens/escape.js'
+import { ARRAY_SEPARATOR, ESCAPE, TOKEN_SEPARATOR } from '../tokens/escape.js'
 import { getStringTokenType } from '../tokens/main.js'
 
 import { parseEscape } from './escape.js'
