@@ -43,6 +43,7 @@ const addQueryArray = (state) => {
     addToken(state)
   }
 
+  // eslint-disable-next-line fp/no-mutating-methods
   state.arrays.push(state.array)
   resetQueryArrayState(state)
 }
@@ -65,6 +66,7 @@ const addToken = (state) => {
   state.onlyDots = hasOnlyDots(state)
   const tokenType = getStringTokenType(state.chars, state.isProp)
   const token = tokenType.normalize(tokenType.parse(state.chars))
+  // eslint-disable-next-line fp/no-mutating-methods
   state.array.push(token)
   resetTokenState(state)
 }
